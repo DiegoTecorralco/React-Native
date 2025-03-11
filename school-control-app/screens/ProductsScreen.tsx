@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   FlatList,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
+import Icon from "react-native-vector-icons/MaterialIcons"; // Asegúrate de tener instalada esta biblioteca
 
 // Lista de productos con imágenes
 const products = [
@@ -67,6 +69,12 @@ const ProductsScreen = () => {
         renderItem={renderItem}
         contentContainerStyle={styles.listContainer}
       />
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => console.log("Add Product")}
+      >
+        <Icon name="add" size={30} color="white" />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -117,6 +125,18 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingBottom: 20,
+  },
+  fab: {
+    position: "absolute",
+    width: 60,
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    right: 20,
+    bottom: 20,
+    backgroundColor: "#03A9F4",
+    borderRadius: 30,
+    elevation: 8,
   },
 });
 

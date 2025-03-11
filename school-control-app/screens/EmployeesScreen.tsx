@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   FlatList,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
+import Icon from "react-native-vector-icons/MaterialIcons"; // Asegúrate de tener instalada esta biblioteca
 
 // Lista de empleados con imágenes
 const employees = [
@@ -67,57 +69,75 @@ const EmployeesScreen = () => {
         renderItem={renderItem}
         contentContainerStyle={styles.listContainer}
       />
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => navigation.navigate("AddEmployeeScreen")}
+      >
+        <Icon name="add" size={30} color="white" />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#f1f1f1", // Fondo más claro
-      padding: 20,
-    },
-    title: {
-      fontSize: 28,
-      fontWeight: "bold",
-      marginBottom: 20,
-      color: "#333", // Título de color gris oscuro
-    },
-    card: {
-      backgroundColor: "#fff", // Fondo blanco para las cards
-      marginBottom: 20,
-      borderRadius: 12,
-      elevation: 5,
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.1,
-      shadowRadius: 8,
-    },
-    cardContent: {
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    cardImage: {
-      width: 80,
-      height: 80,
-      borderRadius: 10,
-      marginRight: 20,
-    },
-    textContainer: {
-      flex: 1,
-    },
-    cardTitle: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "#333", // Título gris oscuro
-    },
-    cardDescription: {
-      fontSize: 16,
-      color: "#777", // Descripción gris medio
-    },
-    listContainer: {
-      paddingBottom: 20,
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: "#f1f1f1", // Fondo más claro
+    padding: 20,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#333", // Título de color gris oscuro
+  },
+  card: {
+    backgroundColor: "#fff", // Fondo blanco para las cards
+    marginBottom: 20,
+    borderRadius: 12,
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+  },
+  cardContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  cardImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    marginRight: 20,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#333", // Título gris oscuro
+  },
+  cardDescription: {
+    fontSize: 16,
+    color: "#777", // Descripción gris medio
+  },
+  listContainer: {
+    paddingBottom: 20,
+  },
+  fab: {
+    position: "absolute",
+    width: 60,
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    right: 20,
+    bottom: 20,
+    backgroundColor: "#03A9F4",
+    borderRadius: 30,
+    elevation: 8,
+  },
+});
 
 export default EmployeesScreen;
